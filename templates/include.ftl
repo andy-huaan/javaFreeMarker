@@ -8,3 +8,5 @@ parse=true 是否作为ftl语法解析,默认是true，false就是以文本方�
 
 被包含的文件中的内容如下：
 <#include "txt/a.txt" />
+
+<#include "txt/study.txt" />

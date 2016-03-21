@@ -35,7 +35,7 @@ public class Test1 {
 		root.put("userList", getListData());
 		
 		//加载模版文件
-		Template tl = config.getTemplate(getTemplateFile("map"));
+		Template tl = config.getTemplate(getTemplateFile("function"));
 		
 		//显示生成的数据
 		Writer out = new OutputStreamWriter(System.out);
