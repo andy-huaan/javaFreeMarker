@@ -1,3 +1,4 @@
+freemarker的list指令，不能遍历如Object[]类型的对象数组。但可以遍历List和Set
 1、简单遍历list:
 <#list userList as user>
   用户名：${user.name}

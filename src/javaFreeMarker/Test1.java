@@ -25,16 +25,20 @@ public class Test1 {
 		Configuration config = new Configuration();
 		config.setDirectoryForTemplateLoading(new File("templates"));
 		
+		
 		//创建数据模型
 		Map<String, Object> root = new HashMap<>();
 		root.put("user", "赵华安");
 		root.put("htmlContent", "<a>超链接</a>");
-		root.put("content", "adsldf");
+		root.put("content", "ads ldf");
 		root.put("age", 13);
+		root.put("money", 1.236);
 		root.put("date", new Date());
 		root.put("userList", getListData());
+		root.put("married", true);
 		
-		//加载模版文件
+		//加载模版文件,并将此模版放入缓存中，缓存默认刷新时间5秒
+		//这个时间就是从上次对某个模板检查更新后，FreeMarker再次检查模板所要间隔的时间
 		Template tl = config.getTemplate(getTemplateFile("function"));
 		
 		//显示生成的数据
@@ -42,6 +46,8 @@ public class Test1 {
 		tl.process(root, out);
 		out.flush();
 		out.close();
+		
+		//config.clearTemplateCache(); //清空模版缓存
 	}
 	
 	//获取模版文件
