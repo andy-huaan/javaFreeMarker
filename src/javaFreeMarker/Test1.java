@@ -24,7 +24,7 @@ public class Test1 {
 		//创建Freemarker配置实例
 		Configuration config = new Configuration();
 		config.setDirectoryForTemplateLoading(new File("templates"));
-		
+		config.setNumberFormat("0.#");
 		
 		//创建数据模型
 		Map<String, Object> root = new HashMap<>();
@@ -39,7 +39,7 @@ public class Test1 {
 		
 		//加载模版文件,并将此模版放入缓存中，缓存默认刷新时间5秒
 		//这个时间就是从上次对某个模板检查更新后，FreeMarker再次检查模板所要间隔的时间
-		Template tl = config.getTemplate(getTemplateFile("global"));
+		Template tl = config.getTemplate(getTemplateFile("map"));
 		
 		//显示生成的数据
 		Writer out = new OutputStreamWriter(System.out);
