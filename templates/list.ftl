@@ -16,9 +16,9 @@ freemarker的list指令，不能遍历如Object[]类型的对象数组。但可�
 <#list userList as user>
  用户名：${user.name}
  性    别: ${user.sex}
-<#if !user_has_next>
-      共有${userList?size}最后一个用户是:${user.name}
-</#if>
+	<#if !user_has_next> <#--辨别当前项是否是序列的最后一项-->
+	      共有${userList?size}最后一个用户是:${user.name}
+	</#if>
 </#list>
 
 4、Freemarker遍历list并按用户年龄降序排序
@@ -42,7 +42,7 @@ freemarker的list指令，不能遍历如Object[]类型的对象数组。但可�
  -${user}
 </#list>
 
-7、
+7、内置索引
 <#assign uploadFileName="aaa;bbb;ccc">
 <#list uploadFileName?split(";") as fileName>  
    ${fileName}------------${fileName_index+1}

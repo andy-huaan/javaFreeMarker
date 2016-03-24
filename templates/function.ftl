@@ -38,7 +38,24 @@
 	${result}：round=${result?round} floor=${result?floor} ceiling=${result?ceiling} 
 </#list>
 二、布尔值
-(1)将布尔值转换为字符串：${married?string("yes", "no")}
+(1)将布尔值转换为默认字符串：${married?string}
+(2)将布尔值转换为字符串：${married?string("值为true", "值为false")}
 
 三、日期处理
 (1)日期格式化:${date?string("yyyy-MM-dd HH:mm:ss")}
+
+四、处理序列的内建函数
+(1)序列包含
+<#assign x = ["red", 16, "blue", "cyan"]>
+"blue": ${x?seq_contains("blue")?string("yes", "no")}
+"yellow": ${x?seq_contains("yellow")?string("yes", "no")}
+16: ${x?seq_contains(16)?string("yes", "no")}
+"16": ${x?seq_contains("16")?string("yes", "no")}
+(2)第一次出现...时的索引位置
+<#assign colors = ["red","blue", "green", "blue"]>
+${colors?seq_index_of("blue")}
+如果设置第二个参数，表示从哪个索引位置开始：
+${colors?seq_index_of("blue",1)}
+(3)最后一次出现..的索引位置
+${colors?seq_last_index_of("blue")}
+
